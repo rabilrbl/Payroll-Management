@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox layoutY="-1.0" prefHeight="666.0" prefWidth="273.0" spacing="10.0" style="-fx-background-color: FBEAEB;"
+      xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="rbl.payrollmanagement.Navbar">
+    <padding>
+        <Insets bottom="20.0" top="20.0"/>
+    </padding>
+    <Pane prefHeight="157.0" prefWidth="274.0">
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="158.0" prefWidth="274.0"
+               style="-fx-cursor: pointer;" text="Payroll Management" textAlignment="CENTER" textFill="#2f3c7e"
+               textOverrun="CENTER_ELLIPSIS" wrapText="true">
+            <font>
+                <Font name="System Bold" size="30.0"/>
+            </font>
+            <effect>
+                <DropShadow height="0.0" radius="0.0" spread="0.24" width="0.0">
+                    <color>
+                        <Color red="0.6526315808296204" green="0.1474463939666748" blue="0.1474463939666748"/>
+                    </color>
+                </DropShadow>
+            </effect>
+            <cursor>
+                <Cursor fx:constant="DEFAULT"/>
+            </cursor>
+        </Label>
+    </Pane>
+    <MFXButton alignment="CENTER" mnemonicParsing="false" onAction="#switchToHome" prefHeight="50.0" prefWidth="274.0"
+               style="-fx-background-color: #2F3C7E;" text="Home" textAlignment="CENTER" textFill="#fbeaeb">
+        <font>
+            <Font size="16.0"/>
+        </font>
+        <graphic>
+            <MaterialIconView fill="#fbeaeb" glyphName="HOME"/>
+        </graphic>
+    </MFXButton>
+    <MFXButton alignment="CENTER" layoutX="10.0" layoutY="168.0" mnemonicParsing="false" onAction="#switchToEmployee"
+               prefHeight="50.0" prefWidth="274.0" style="-fx-background-color: #2F3C7E;" text="Employees"
+               textAlignment="CENTER" textFill="#fbeaeb">
+        <font>
+            <Font size="16.0"/>
+        </font>
+        <graphic>
+            <MaterialIconView fill="#fbeaeb" glyphName="GROUP" selectionFill="#fbeaeb"/>
+        </graphic>
+    </MFXButton>
+    <MFXButton onAction="#logout" prefHeight="38.0" prefWidth="274.0"
+               style="-fx-background-color: FBEAEB; -fx-border-color: #2F3C7E;" text="Logout">
+        <VBox.margin>
+            <Insets left="50.0" right="50.0" top="250.0"/>
+        </VBox.margin>
+        <graphic>
+            <MaterialIconView glyphName="INPUT" strokeLineJoin="ROUND" textAlignment="CENTER"/>
+        </graphic>
+        <font>
+            <Font size="12.0"/>
+        </font>
+    </MFXButton>
+</VBox>

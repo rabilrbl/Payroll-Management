@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0"
+            prefWidth="897.0" style="-fx-background-color: FDFFF7;" xmlns="http://javafx.com/javafx/18"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="rbl.payrollmanagement.Employee">
+    <fx:include source="navbar.fxml"/>
+    <AnchorPane layoutX="274.0" prefHeight="665.0" prefWidth="626.0" style="-fx-border-color: #9593B5;">
+        <Label layoutX="305.0" layoutY="72.0" text="Employee"/>
+    </AnchorPane>
+</AnchorPane>
