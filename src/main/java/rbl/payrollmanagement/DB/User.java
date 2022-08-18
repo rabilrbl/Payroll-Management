@@ -10,7 +10,7 @@ public class User {
     private String username, password, role, name;
     private int id;
 
-    private static final Connection connection = Connector();
+    static final Connection connection = Connector();
 
     public static Connection Connector() {
          try {
@@ -50,6 +50,28 @@ public class User {
         this.name = result.getString("name");
         this.role = result.getString("role");
 
+    }
+
+    public User(int id) throws SQLException {
+        assert connection != null;
+
+        String sql = "SELECT * FROM "+TABLE_NAME+" WHERE id='"+id+"'";
+        Statement command = connection.createStatement();
+
+        ResultSet result = command.executeQuery(sql);
+        this.id = result.getInt("id");
+        this.username = result.getString("username");
+        this.password = result.getString("password");
+        this.name = result.getString("name");
+        this.role = result.getString("role");
+
+    }
+
+    public User(int Id, String name, String username, String role){
+        this.id = Id;
+        this.name = name;
+        this.username = username;
+        this.role = role;
     }
 
     public String getUsername() {
@@ -96,6 +118,13 @@ public class User {
         String sql = "UPDATE "+TABLE_NAME+" SET "+column+"="+value;
         Statement command = connection.createStatement();
         command.executeUpdate(sql);
+    }
+
+    public static ResultSet getAll() throws SQLException {
+        String sql = "SELECT * FROM "+TABLE_NAME;
+        Statement command = connection.createStatement();
+
+        return command.executeQuery(sql);
     }
 
     public static User createNew(String name, String username, String password, String role) throws SQLException {
