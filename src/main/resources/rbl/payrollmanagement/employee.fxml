@@ -4,21 +4,50 @@
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import io.github.palexdev.materialfx.controls.MFXTableView?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="665.0" prefWidth="979.0" style="-fx-background-color: FDFFF7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rbl.payrollmanagement.EmployeeView">
+<AnchorPane maxHeight="665.0" maxWidth="1066.0" minHeight="665.0" minWidth="1066.0" prefHeight="665.0" prefWidth="1066.0" style="-fx-background-color: FDFFF7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rbl.payrollmanagement.EmployeeView">
     <fx:include source="navbar.fxml" />
-    <AnchorPane layoutX="274.0" prefHeight="665.0" prefWidth="705.0" style="-fx-border-color: #9593B5; -fx-background-color: FCFAFB;">
+    <AnchorPane layoutX="274.0" prefHeight="666.0" prefWidth="790.0" style="-fx-border-color: #9593B5; -fx-background-color: FCFAFB;">
         <Label layoutX="35.0" layoutY="29.0" text="Employees" textFill="#2f3c7e">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></Label>
-      <MFXButton alignment="CENTER" buttonType="RAISED" layoutX="531.0" layoutY="32.0" onAction="#addEmployee" prefHeight="26.0" prefWidth="144.0" rippleRadiusMultiplier="20.0" style="-fx-border-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: FBEAEB;" text="Add" textAlignment="CENTER" textFill="#2f3c7e">
+      <MFXButton alignment="CENTER" buttonType="RAISED" layoutX="611.0" layoutY="33.0" onAction="#addEmployee" prefHeight="26.0" prefWidth="144.0" rippleRadiusMultiplier="20.0" style="-fx-border-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: FBEAEB;" text="New Employee" textAlignment="CENTER" textFill="#2f3c7e">
          <graphic>
-            <MaterialIconView glyphName="ADD" />
+            <MaterialIconView glyphName="PERSON_ADD" />
          </graphic>
       </MFXButton>
-      <MFXTableView fx:id="table" layoutX="35.0" layoutY="95.0" prefHeight="536.0" prefWidth="640.0" />
+      <MFXTableView fx:id="table" layoutX="35.0" layoutY="95.0" prefHeight="536.0" prefWidth="720.0" />
+      <MFXButton alignment="CENTER" layoutX="147.0" layoutY="588.0" onAction="#updateItem" prefHeight="30.0" prefWidth="82.0" rippleRadiusMultiplier="20.0" style="-fx-border-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: FBEAEB;" text="Update" textAlignment="CENTER" textFill="#2f3c7e">
+         <graphic>
+            <MaterialIconView glyphName="EDIT" />
+         </graphic>
+      </MFXButton>
+      <Label layoutX="512.0" layoutY="76.0" text="Select an item to perform operations">
+         <graphic>
+            <MaterialIconView glyphName="HELP" />
+         </graphic>
+      </Label>
+      <MFXButton alignment="CENTER" layoutX="249.0" layoutY="588.0" onAction="#deleteEmployee" prefHeight="30.0" prefWidth="81.0" rippleRadiusMultiplier="20.0" style="-fx-border-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: FBEAEB;" text="Delete" textAlignment="CENTER" textFill="#2f3c7e">
+         <graphic>
+            <MaterialIconView glyphName="DELETE_FOREVER" />
+         </graphic>
+      </MFXButton>
+      <MFXButton alignment="CENTER" layoutX="542.0" layoutY="588.0" onAction="#updateItem" prefHeight="30.0" prefWidth="182.0" rippleRadiusMultiplier="20.0" style="-fx-border-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: FBEAEB;" text="Generate Transaction" textAlignment="CENTER" textFill="#2f3c7e">
+         <graphic>
+            <MaterialIconView glyphName="ACCOUNT_BALANCE" />
+         </graphic>
+      </MFXButton>
+      <MFXButton alignment="CENTER" buttonType="RAISED" layoutX="182.0" layoutY="32.0" onAction="#refresh" prefHeight="30.0" prefWidth="28.0" rippleRadiusMultiplier="20.0" style="-fx-border-color: #2F3C7E; -fx-border-radius: 50; -fx-background-radius: 50; -fx-background-color: FBEAEB;" text=" " textAlignment="CENTER" textFill="#2f3c7e">
+         <graphic>
+            <MaterialIconView glyphName="REFRESH" wrappingWidth="5.800048828125" />
+         </graphic>
+         <tooltip>
+            <Tooltip text="Refresh" />
+         </tooltip>
+      </MFXButton>
     </AnchorPane>
 </AnchorPane>

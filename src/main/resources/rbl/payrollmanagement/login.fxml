@@ -9,46 +9,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="665.0" prefWidth="897.0" style="-fx-background-color: FBEAEB;"
-            xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="rbl.payrollmanagement.Login">
-   <Label alignment="CENTER" layoutX="107.0" layoutY="257.0" prefHeight="51.0" prefWidth="681.0" text="Authorized Login"
-          textAlignment="CENTER">
+<AnchorPane maxHeight="665.0" maxWidth="897.0" minHeight="665.0" minWidth="897.0" prefHeight="665.0" prefWidth="897.0" style="-fx-background-color: FBEAEB;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rbl.payrollmanagement.Login">
+   <Label alignment="CENTER" layoutX="108.0" layoutY="221.0" prefHeight="51.0" prefWidth="681.0" text="Authorized Login" textAlignment="CENTER">
       <graphic>
-         <MaterialIconView glyphName="ACCOUNT_BOX"/>
+         <MaterialIconView glyphName="ACCOUNT_CIRCLE" />
       </graphic>
       <font>
-         <Font size="35.0"/>
+         <Font size="28.0" />
       </font>
    </Label>
-   <MFXTextField fx:id="username" floatingText="Username" layoutX="275.0" layoutY="322.0" prefHeight="22.0"
-                 prefWidth="346.0">
+   <MFXTextField fx:id="username" floatingText="Username" layoutX="275.0" layoutY="311.0" prefHeight="30.0" prefWidth="346.0" style="-fx-background-radius: 20; -fx-border-radius: 20;">
+      <font>
+         <Font size="14.0" />
+      </font>
       <padding>
-         <Insets bottom="10.0" left="10.0" right="5.0" top="10.0"/>
+         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
       </padding>
-      <font>
-         <Font size="14.0"/>
-      </font>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
    </MFXTextField>
-   <MFXPasswordField fx:id="password" floatingText="Password" layoutX="275.0" layoutY="400.0" prefHeight="65.0"
-                     prefWidth="346.0">
+   <MFXPasswordField fx:id="password" floatingText="Password" layoutX="275.0" layoutY="380.0" prefHeight="34.0" prefWidth="346.0" style="-fx-background-radius: 20; -fx-border-radius: 20;">
       <font>
-         <Font size="14.0"/>
+         <Font size="14.0" />
       </font>
+      <opaqueInsets>
+         <Insets />
+      </opaqueInsets>
+      <padding>
+         <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+      </padding>
    </MFXPasswordField>
-   <MFXButton layoutX="274.0" layoutY="485.0" onAction="#login" prefHeight="42.0" prefWidth="346.0"
-              style="-fx-background-color: #2F3C7E;" text="Login" textFill="#fbeaeb">
+   <MFXButton fx:id="loginButton" contentDisplay="RIGHT" layoutX="275.0" layoutY="457.0" prefHeight="42.0" prefWidth="346.0" style="-fx-background-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20;" text="Login" textFill="#fbeaeb">
       <font>
-         <Font size="14.0"/>
+         <Font size="14.0" />
       </font>
       <graphic>
-         <MaterialIconView fill="#fbeaeb" glyphName="INPUT"/>
+         <MaterialIconView fill="#fbeaeb" glyphName="INPUT" />
       </graphic>
    </MFXButton>
-   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="114.0" prefHeight="118.0"
-          prefWidth="682.0" text="PAYROLL MANAGEMENT" textAlignment="CENTER">
+   <Label alignment="CENTER" contentDisplay="CENTER" layoutX="107.0" layoutY="165.0" prefHeight="55.0" prefWidth="682.0" text="PAYROLL MANAGEMENT" textAlignment="CENTER">
       <font>
-         <Font name="System Bold" size="44.0"/>
+         <Font name="System Bold" size="33.0" />
       </font>
    </Label>
 </AnchorPane>

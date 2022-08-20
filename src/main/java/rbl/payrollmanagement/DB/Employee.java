@@ -23,20 +23,20 @@ public class Employee  {
         command.execute(sql);
     }
 
-    public Employee(String username) throws SQLException {
+    public Employee(int id) throws SQLException {
         assert connection != null;
 
-        String sql = "SELECT * FROM "+TABLE_NAME+" WHERE user='"+new User(username).getId()+"'";
+        String sql = "SELECT * FROM "+TABLE_NAME+" WHERE id='"+id+"'";
         Statement command = connection.createStatement();
 
         ResultSet result = command.executeQuery(sql);
+        result.next();
         this.id = result.getInt("id");
         this.user = result.getInt("user");
         this.salary = result.getInt("salary");
         this.department = result.getString("department");
         this.phone = result.getString("phone");
         this.email = result.getString("email");
-
     }
 
 
@@ -50,9 +50,13 @@ public class Employee  {
     }
 
     public void update(String column, String value) throws SQLException {
-        String sql = "UPDATE "+TABLE_NAME+" SET "+column+"="+value;
+        String sql = "UPDATE " + TABLE_NAME + "\n SET " + column + "='" + value +"'\n WHERE id="+this.id+";";
         Statement command = connection.createStatement();
-        command.executeUpdate(sql);
+        try{
+            command.executeUpdate(sql);
+        }catch (SQLException ev) {
+            System.out.println(ev.getMessage());
+        }
     }
 
     public static ResultSet getAll() throws SQLException {
@@ -102,20 +106,30 @@ public class Employee  {
         return phone;
     }
 
-    public void setDepartment(String department) {
+    public void setDepartment(String department) throws SQLException {
         this.department = department;
+        this.update("department",department);
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email) throws SQLException {
         this.email = email;
+        this.update("email", email);
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(String phone) throws SQLException {
         this.phone = phone;
+        this.update("phone",phone);
     }
 
-    public void setSalary(int salary) {
+    public void setSalary(int salary) throws SQLException {
         this.salary = salary;
+        this.update("salary", String.valueOf(salary));
+    }
+
+    public void delete() throws SQLException {
+        String sql = "DELETE FROM "+TABLE_NAME+" WHERE id="+this.id+";";
+        Statement command = connection.createStatement();
+        command.execute(sql);
     }
 
 
@@ -130,6 +144,11 @@ public class Employee  {
         command.setInt(5, salary);
         command.executeUpdate();
 
-        return new Employee(username);
+        sql = "SELECT * FROM "+TABLE_NAME+" WHERE user="+user.getId();
+        Statement cmd = connection.createStatement();
+        ResultSet set = cmd.executeQuery(sql);
+        set.next();
+
+        return new Employee(set.getInt("id"));
     }
 }

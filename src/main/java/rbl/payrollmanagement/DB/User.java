@@ -13,20 +13,20 @@ public class User {
     static final Connection connection = Connector();
 
     public static Connection Connector() {
-         try {
+        try {
             Class.forName("org.sqlite.JDBC");
-             System.out.println("Connection success");
+            System.out.println("Connection success");
             return DriverManager.getConnection(DATABASE_URL);
-         } catch (Exception e){
-             System.out.println("Connection fail");
-             System.out.println(e.getMessage());
-             return null;
-         }
+        } catch (Exception e) {
+            System.out.println("Connection fail");
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     public User() throws SQLException {
         assert connection != null;
-        String sql = "CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" (\n"
+        String sql = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (\n"
                 + " id integer PRIMARY KEY,\n"
                 + " username text,\n"
                 + " password text,\n"
@@ -40,10 +40,11 @@ public class User {
     public User(String username) throws SQLException {
         assert connection != null;
 
-        String sql = "SELECT * FROM "+TABLE_NAME+" WHERE username='"+username+"'";
+        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE username='" + username + "'";
         Statement command = connection.createStatement();
 
         ResultSet result = command.executeQuery(sql);
+        result.next();
         this.id = result.getInt("id");
         this.username = result.getString("username");
         this.password = result.getString("password");
@@ -55,7 +56,7 @@ public class User {
     public User(int id) throws SQLException {
         assert connection != null;
 
-        String sql = "SELECT * FROM "+TABLE_NAME+" WHERE id='"+id+"'";
+        String sql = "SELECT * FROM " + TABLE_NAME + " WHERE id='" + id + "'";
         Statement command = connection.createStatement();
 
         ResultSet result = command.executeQuery(sql);
@@ -67,7 +68,7 @@ public class User {
 
     }
 
-    public User(int Id, String name, String username, String role){
+    public User(int Id, String name, String username, String role) {
         this.id = Id;
         this.name = name;
         this.username = username;
@@ -104,31 +105,26 @@ public class User {
         this.update("username", this.username);
     }
 
-    public void setRole(String role) throws SQLException {
-        this.role = role;
-        this.update("role", this.role);
-    }
-
     public void setPassword(String password) throws SQLException {
         this.password = password;
         this.update("password", this.password);
     }
 
     public void update(String column, String value) throws SQLException {
-        String sql = "UPDATE "+TABLE_NAME+" SET "+column+"="+value;
+        String sql = "UPDATE " + TABLE_NAME + "\n SET " + column + "='" + value +"'\n WHERE id="+this.id+";";
         Statement command = connection.createStatement();
         command.executeUpdate(sql);
     }
 
     public static ResultSet getAll() throws SQLException {
-        String sql = "SELECT * FROM "+TABLE_NAME;
+        String sql = "SELECT * FROM " + TABLE_NAME;
         Statement command = connection.createStatement();
 
         return command.executeQuery(sql);
     }
 
     public static User createNew(String name, String username, String password, String role) throws SQLException {
-        String sql = "INSERT INTO "+TABLE_NAME+"(name,username,password,role) VALUES(?,?,?,?)";
+        String sql = "INSERT INTO " + TABLE_NAME + "(name,username,password,role) VALUES(?,?,?,?)";
         PreparedStatement command = connection.prepareStatement(sql);
         command.setString(1, name);
         command.setString(2, username);
