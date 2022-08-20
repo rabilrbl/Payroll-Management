@@ -69,6 +69,7 @@ public class Login implements Initializable {
             try {
                 this.login(e);
             } catch (Exception ex) {
+                System.out.println(ex.getMessage());
                 throw new RuntimeException(ex);
             }
         });

@@ -1,5 +1,6 @@
 package rbl.payrollmanagement;
 
+import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,8 +19,9 @@ import java.util.ResourceBundle;
 public class UpdateEmployee implements Initializable {
 
     @FXML
-    private MFXTextField name, username, password, email, phone, salary, department;
-
+    private MFXTextField name, username, email, phone, salary, department;
+    @FXML
+    private MFXPasswordField password;
     private int id;
 
     @FXML

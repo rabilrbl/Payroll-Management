@@ -7,6 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FCFAFB;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
    <Label fx:id="label" layoutX="37.0" layoutY="14.0" text="Add Employee" textFill="#2f3c7e">
       <font>
@@ -15,7 +16,7 @@
    </Label>
    <MFXTextField fx:id="name" floatingText="Name" layoutX="37.0" layoutY="61.0" prefHeight="51.0" prefWidth="522.0" />
    <MFXTextField fx:id="username" floatingText="Username" layoutX="37.0" layoutY="123.0" prefHeight="51.0" prefWidth="239.0" />
-   <MFXTextField fx:id="password" floatingText="Set Password" layoutX="323.0" layoutY="123.0" prefHeight="51.0" prefWidth="239.0" />
+   <MFXPasswordField fx:id="password" floatingText="Set Password" layoutX="323.0" layoutY="123.0" prefHeight="51.0" prefWidth="239.0" />
    <MFXTextField fx:id="phone" floatingText="Phone" layoutX="323.0" layoutY="189.0" prefHeight="51.0" prefWidth="239.0" />
    <MFXTextField fx:id="email" floatingText="Email" layoutX="37.0" layoutY="189.0" prefHeight="51.0" prefWidth="239.0" />
    <MFXTextField fx:id="department" floatingText="Department" layoutX="323.0" layoutY="258.0" prefHeight="51.0" prefWidth="239.0" />

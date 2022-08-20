@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="448.0" prefWidth="600.0" style="-fx-background-color: #FCFAFB;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rbl.payrollmanagement.GenerateTransaction">
+    <Label fx:id="label" layoutX="37.0" layoutY="14.0" text="Generate Transaction" textFill="#2f3c7e">
+        <font>
+            <Font name="System Bold" size="21.0" />
+        </font>
+    </Label>
+   <MFXTextField fx:id="salary" floatingText="Salary" layoutX="37.0" layoutY="54.0" prefHeight="0.0" prefWidth="150.0" />
+   <Label fx:id="label1" layoutX="38.0" layoutY="119.0" text="Additions" textFill="#2f3c7e">
+      <font>
+         <Font name="System Bold" size="17.0" />
+      </font>
+   </Label>
+   <MFXTextField fx:id="hra" floatingText="HRA" layoutX="37.0" layoutY="148.0" prefHeight="0.0" prefWidth="150.0" />
+   <MFXTextField fx:id="da" floatingText="DA" layoutX="206.0" layoutY="148.0" prefHeight="0.0" prefWidth="150.0" />
+   <MFXTextField fx:id="medical" floatingText="Medical" layoutX="374.0" layoutY="148.0" prefHeight="0.0" prefWidth="150.0" />
+   <MFXTextField fx:id="overtime" floatingText="Overtime Funds" layoutX="37.0" layoutY="212.0" prefHeight="0.0" prefWidth="150.0" />
+   <Label fx:id="label11" layoutX="38.0" layoutY="274.0" text="Deductions" textFill="#2f3c7e">
+      <font>
+         <Font name="System Bold" size="17.0" />
+      </font>
+   </Label>
+   <MFXTextField fx:id="professionalTax" floatingText="Professional Tax" layoutX="37.0" layoutY="304.0" prefHeight="0.0" prefWidth="150.0" />
+   <MFXTextField fx:id="esi" floatingText="ESI" layoutX="206.0" layoutY="304.0" prefHeight="0.0" prefWidth="150.0" />
+   <MFXTextField fx:id="additionOther" floatingText="Other" layoutX="206.0" layoutY="212.0" prefHeight="0.0" prefWidth="150.0" />
+   <MFXTextField fx:id="deductionOther" floatingText="Other" layoutX="374.0" layoutY="304.0" prefHeight="0.0" prefWidth="150.0" />
+    <MFXButton layoutX="38.0" layoutY="384.0" onAction="#genTransaction" prefHeight="44.0" prefWidth="522.0" style="-fx-background-color: #2F3C7E; -fx-background-radius: 20; -fx-border-radius: 20;" text="Generate Transaction" textFill="#fbeaeb">
+        <font>
+            <Font size="15.0" />
+        </font>
+        <graphic>
+            <MaterialIconView fill="#fbeaeb" glyphName="RECEIPT" />
+        </graphic>
+    </MFXButton>
+</AnchorPane>

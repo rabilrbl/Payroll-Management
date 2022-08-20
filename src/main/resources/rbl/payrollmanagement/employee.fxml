@@ -36,7 +36,7 @@
             <MaterialIconView glyphName="DELETE_FOREVER" />
          </graphic>
       </MFXButton>
-      <MFXButton alignment="CENTER" layoutX="542.0" layoutY="588.0" onAction="#updateItem" prefHeight="30.0" prefWidth="182.0" rippleRadiusMultiplier="20.0" style="-fx-border-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: FBEAEB;" text="Generate Transaction" textAlignment="CENTER" textFill="#2f3c7e">
+      <MFXButton alignment="CENTER" layoutX="542.0" layoutY="588.0" onAction="#generateTransaction" prefHeight="30.0" prefWidth="182.0" rippleRadiusMultiplier="20.0" style="-fx-border-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20; -fx-background-color: FBEAEB;" text="Generate Transaction" textAlignment="CENTER" textFill="#2f3c7e">
          <graphic>
             <MaterialIconView glyphName="ACCOUNT_BALANCE" />
          </graphic>

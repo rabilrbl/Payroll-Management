@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="665.0" maxWidth="1066.0" minHeight="665.0" minWidth="1066.0" prefHeight="665.0" prefWidth="1066.0" style="-fx-background-color: FDFFF7;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rbl.payrollmanagement.TransactionsView">
+    <fx:include source="navbar.fxml" />
+    <AnchorPane layoutX="274.0" prefHeight="666.0" prefWidth="793.0" style="-fx-border-color: #9593B5;">
+        <Label layoutX="38.0" layoutY="36.0" text="Transactions" textFill="#2f3c7e">
+            <font>
+                <Font name="System Bold" size="37.0" />
+            </font>
+        </Label>
+      <MFXListView fx:id="listView" layoutX="38.0" layoutY="101.0" prefHeight="350.0" prefWidth="722.0" />
+    </AnchorPane>
+</AnchorPane>

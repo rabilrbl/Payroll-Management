@@ -16,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import rbl.payrollmanagement.DB.Employee;
+import rbl.payrollmanagement.DB.User;
 
 import java.io.IOException;
 import java.net.URL;
@@ -98,6 +99,31 @@ public class EmployeeView implements Initializable {
         stage.show();
     }
 
+
+    @FXML
+    void generateTransaction(ActionEvent e) throws IOException, SQLException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("generateTransaction.fxml"));
+        Employee emp = getSelectedItem();
+        loader.setResources(new ListResourceBundle() {
+            @Override
+            protected Object[][] getContents() {
+                try {
+                    return new Object[][]{
+                            {"salary", String.valueOf(emp.getSalary())},
+                            {"userId", String.valueOf(emp.getUser().getId())}
+                    };
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
+            }
+        });
+        Parent root = loader.load();
+        Stage stage = new Stage();
+        stage.setTitle("Generate Transaction");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
     private Employee getSelectedItem() throws SQLException {
         try {
             int id = table.getSelectionModel().getSelectedValues().get(0).getId();
@@ -146,7 +172,7 @@ public class EmployeeView implements Initializable {
     public void deleteEmployee(ActionEvent e) throws SQLException, IOException {
         Employee emp = getSelectedItem();
         if (emp != null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING);
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Delete Employee");
             alert.setHeaderText("Are you sure to delete?");
             alert.setContentText("You are about to delete employee named " + emp.getName() + " with username " + emp.getUsername());

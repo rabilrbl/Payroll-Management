@@ -71,7 +71,7 @@ public class Employee  {
     }
 
     public User getUser() throws SQLException {
-        return new User(this.id);
+        return new User(this.user);
     }
 
     public String getName() {

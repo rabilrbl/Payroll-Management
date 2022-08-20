@@ -27,6 +27,11 @@ public class Navbar implements Initializable {
         Main.switchScene(e, "index.fxml");
     }
 
+    @FXML
+    void switchToTransactions(ActionEvent e) throws IOException {
+        Main.switchScene(e, "transactions.fxml");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(Login.isLoggedIn())
