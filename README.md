@@ -3,6 +3,10 @@ A simple payroll management system with JavaFX.
 
 *Project for IVth Semester Object Oriented Concepts (OOC) VTU 2018 Scheme*.
 
+College: [St Joseph Engineering College](http://sjec.ac.in/)
+
+Branch: **AIML**
+
 **Team Members:**
 1. Rihan D'sa
 2. Anisha Sharal D'Souza
