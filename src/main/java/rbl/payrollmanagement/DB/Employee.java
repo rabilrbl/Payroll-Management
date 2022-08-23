@@ -66,6 +66,14 @@ public class Employee  {
         return command.executeQuery(sql);
     }
 
+    public static int getCount() throws SQLException {
+        String sql = "SELECT count(*) FROM '"+TABLE_NAME+"';";
+        Statement command = connection.createStatement();
+        ResultSet result = command.executeQuery(sql);
+        result.next();
+        return result.getInt("count(*)");
+    }
+
     public int getId() {
         return id;
     }

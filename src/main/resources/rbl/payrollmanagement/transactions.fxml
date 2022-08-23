@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXListView?>
+<?import io.github.palexdev.materialfx.controls.MFXTableView?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -13,6 +13,6 @@
                 <Font name="System Bold" size="37.0" />
             </font>
         </Label>
-      <MFXListView fx:id="listView" layoutX="38.0" layoutY="101.0" prefHeight="350.0" prefWidth="722.0" />
+      <MFXTableView fx:id="table" layoutX="38.0" layoutY="101.0" prefHeight="495.0" prefWidth="714.0" />
     </AnchorPane>
 </AnchorPane>

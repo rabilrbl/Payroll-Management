@@ -6,6 +6,40 @@ public class Transactions {
     private static final Connection connection = User.connection;
     private final static String TABLE_NAME = "transactions";
 
+    private int payment, addition, deductions;
+    private String userName;
+
+    public Transactions(String userName, int payment, int addition, int deductions){
+        this.userName = userName;
+        this.payment = payment;
+        this.addition = addition;
+        this.deductions = deductions;
+    }
+
+    public int getPayment() {
+        return payment;
+    }
+
+    public int getDeductions() {
+        return deductions;
+    }
+
+    public int getAddition() {
+        return addition;
+    }
+
+    public static int getCount() throws SQLException {
+        String sql = "SELECT count(*) FROM '"+TABLE_NAME+"';";
+        Statement command = connection.createStatement();
+        ResultSet result = command.executeQuery(sql);
+        result.next();
+        return result.getInt("count(*)");
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
     public Transactions() throws SQLException {
         assert connection != null;
         String sql = "CREATE TABLE IF NOT EXISTS "+TABLE_NAME+" (\n"
@@ -34,12 +68,18 @@ public class Transactions {
         return command.executeQuery(sql);
     }
 
-    public ResultSet Tranactions(User usr) throws SQLException {
+    public static ResultSet getALL(User usr) throws SQLException {
         assert connection != null;
 
         String sql = "SELECT * FROM "+TABLE_NAME+" WHERE user='"+usr.getId()+"'";
         Statement command = connection.createStatement();
 
+        return command.executeQuery(sql);
+    }
+
+    public static ResultSet getLast5() throws SQLException {
+        String sql = "SELECT * FROM "+TABLE_NAME+" WHERE id > (SELECT COUNT(*) FROM "+TABLE_NAME+") - 5 ORDER BY ID DESC;";
+        Statement command = connection.createStatement();
         return command.executeQuery(sql);
     }
 

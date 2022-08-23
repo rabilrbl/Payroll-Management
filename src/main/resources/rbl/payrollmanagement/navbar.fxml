@@ -33,7 +33,7 @@
             </cursor>
         </Label>
     </Pane>
-    <MFXButton alignment="CENTER" mnemonicParsing="false" onAction="#switchToHome" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20;" text="Home" textAlignment="CENTER" textFill="#fbeaeb">
+    <MFXButton fx:id="home" alignment="CENTER" mnemonicParsing="false" onAction="#switchToHome" prefHeight="40.0" prefWidth="230.0" style="-fx-background-color: #2F3C7E; -fx-border-radius: 20; -fx-background-radius: 20;" text="Home" textAlignment="CENTER" textFill="#fbeaeb">
         <font>
             <Font size="16.0" />
         </font>
@@ -44,7 +44,7 @@
          <Insets left="20.0" right="20.0" />
       </VBox.margin>
     </MFXButton>
-    <MFXButton alignment="CENTER" layoutX="10.0" layoutY="168.0" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="40.0" prefWidth="227.0" style="-fx-background-color: #2F3C7E; -fx-background-radius: 20; -fx-border-radius: 20;" text="Employees" textAlignment="CENTER" textFill="#fbeaeb">
+    <MFXButton fx:id="employees" alignment="CENTER" layoutX="10.0" layoutY="168.0" mnemonicParsing="false" onAction="#switchToEmployee" prefHeight="40.0" prefWidth="227.0" style="-fx-background-color: #2F3C7E; -fx-background-radius: 20; -fx-border-radius: 20;" text="Employees" textAlignment="CENTER" textFill="#fbeaeb">
         <font>
             <Font size="16.0" />
         </font>

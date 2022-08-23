@@ -27,7 +27,7 @@ public class Login implements Initializable {
 
     public static Object loggedInUser[][];
 
-    public static boolean isLoggedIn(){
+    public static boolean isLoggedIn() {
         return loggedInUser != null;
     }
 
@@ -40,14 +40,17 @@ public class Login implements Initializable {
 
         try {
             user = new User(username.getText());
-            loggedInUser = new Object[][]{{"username",user.getUsername()},{"name", user.getName()}};
-            if(user.getPassword().equals(password.getText()))
-                Main.switchScene(e, "index.fxml");
+            loggedInUser = new Object[][]{{"username", user.getUsername()}, {"name", user.getName()}, {"role", user.getRole()}};
+            if (user.getPassword().equals(password.getText()))
+                if(Login.loggedInUser[2][1].equals("employee"))
+                    Main.switchScene(e, "transactions.fxml");
+                else
+                    Main.switchScene(e, "index.fxml");
             else {
                 alert.show();
             }
         } catch (SQLException exc) {
-            if(exc.getMessage().equals("ResultSet closed"))
+            if (exc.getMessage().equals("ResultSet closed"))
                 alert.show();
             else
                 throw exc;
@@ -57,7 +60,7 @@ public class Login implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         password.setOnKeyPressed(e -> {
-            if(e.getCode().equals(KeyCode.ENTER)){
+            if (e.getCode().equals(KeyCode.ENTER)) {
                 try {
                     this.login(e);
                 } catch (Exception ex) {

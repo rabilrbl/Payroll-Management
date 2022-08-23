@@ -1,5 +1,6 @@
 package rbl.payrollmanagement;
 
+import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -10,6 +11,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Navbar implements Initializable {
+
+    @FXML
+    private MFXButton home, employees;
     @FXML
     private Label loggedUser;
     @FXML
@@ -36,5 +40,10 @@ public class Navbar implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         if(Login.isLoggedIn())
         loggedUser.setText((String) Login.loggedInUser[1][1]);
+        if(Login.loggedInUser[2][1].equals("employee")){
+            home.setVisible(false);
+            employees.setVisible(false);
+        }
+
     }
 }
