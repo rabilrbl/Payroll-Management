@@ -34,7 +34,7 @@ public class TransactionsView implements Initializable {
 
         table.getTableColumns().addAll(userColumn, paymentColumn, addColumn, dedColumn);
         try {
-            ResultSet res = Transactions.getALL(new User((String) Login.loggedInUser[0][1]));
+            ResultSet res = Login.loggedInUser[2][1].equals("admin") ? Transactions.getAll() : Transactions.getALL(new User((String) Login.loggedInUser[0][1]));
             while (res.next()) {
                 int additions = res.getInt("hra") + res.getInt("da") + res.getInt("medical") + res.getInt("overtime") + res.getInt("additionOther");
                 int deductions = res.getInt("professionalTax") + res.getInt("esi") + res.getInt("deductionOther");
